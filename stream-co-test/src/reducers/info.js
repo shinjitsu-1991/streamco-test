@@ -1,5 +1,5 @@
 const initialState = {
-    page: "home"
+    page: "series"
 }
 
 export default function pageInfo (state = initialState) {

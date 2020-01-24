@@ -24,8 +24,7 @@ const Content = (props) => {
     const currentPage = () => {
         switch(props.page){
             case 'series':
-                // return <ListPage type="series"/>;
-                return <></>;
+                return <ListPage />;
             case 'movies':
                 // return <ListPage type="movies"/>;
                 return <></>;
