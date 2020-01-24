@@ -24,16 +24,20 @@ const Content = (props) => {
     const currentPage = () => {
         switch(props.page){
             case 'series':
-                return <ListPage type="series"/>;
+                // return <ListPage type="series"/>;
+                return <></>;
             case 'movies':
-                return <ListPage type="movies"/>;
+                // return <ListPage type="movies"/>;
+                return <></>;
             default:
                 return <Home />;
         }
     };
     return(
+
         <MainContent>
             <ContentWrap>
+                {props.page}
                 {currentPage()}
             </ContentWrap>
         </MainContent>
