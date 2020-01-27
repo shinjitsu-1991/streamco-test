@@ -6,7 +6,7 @@ const Item = styled.div``;
 
 const ListItem = (props) => {
     return(
-        <Item>{props.data}</Item>
+        <Item>{props.title}</Item>
     )
 };
 

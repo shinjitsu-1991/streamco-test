@@ -4,19 +4,35 @@ import styled from 'styled-components';
 import DataService from "../../services/data-service";
 import ListItem from "../list-item/ListItem";
 
-const ListPage = (props) => {
+export default class ListPage extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+          data:null
+        };
+    }
 
-    const gettingData = async () => {
+    componentDidMount() {
         const data = new DataService;
-        const dataFiltered = await data.sortData(props.type);
-        const markup = await dataFiltered.map((item) => {
-            return(<ListItem data={item} />)
-        })
-        console.log(markup);
-        return markup;
+        const dataFiltered = data.sortData(this.props.type)
+            .then((data) => {
+                this.setState({
+                    data:data
+                })
+            });
+
+    }
+
+    gettingData = () => {
+        if(this.state.data !== null) {
+            let count = 100;
+            const markup = this.state.data.map((item) => {
+                return(<ListItem key={count++} title={item.title} />)
+            });
+            return markup;
+        }
     };
-
-    return(<>{gettingData()}</>)
+    render() {
+        return(<>{this.gettingData()}</>)
+    }
 };
-
-export default ListPage;

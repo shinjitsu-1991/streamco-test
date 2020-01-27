@@ -6,14 +6,12 @@ export default class DataService {
 
     sortData = async (dataType) => {
         return await this.getData()
-            .then((body)=>{return body.entries})
+            .then(body => body.entries)
             .then((entries) => {
                 return entries.filter((item) => {
                     return (item["programType"] === dataType && item["releaseYear"] >= 2010);
                 })
             })
-            .then((items) => {
-                return items.splice(0, items.length-21);
-            })
+            .then((items) =>{return items.slice(0,21)})
     };
 }
