@@ -24,10 +24,9 @@ const Content = (props) => {
     const currentPage = () => {
         switch(props.page){
             case 'series':
-                return <ListPage />;
+                return <ListPage type="series"/>;
             case 'movies':
-                // return <ListPage type="movies"/>;
-                return <></>;
+                return <ListPage type="movies"/>;
             default:
                 return <Home />;
         }

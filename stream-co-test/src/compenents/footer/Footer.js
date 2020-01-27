@@ -53,6 +53,7 @@ const FooterSocialsBlock = styled.div`
     align-items: center;
     width: 100%;
     height: auto;
+    margin-top: 40px
 `;
 
 const FooterSocialsPart = styled.div`
@@ -66,9 +67,11 @@ const FooterSocialsPart = styled.div`
 const FooterSocialLink = styled.a`
     width: ${props => props.currentWidth};
     height: ${props => props.currentHeight};
+    margin-right: ${props => props.marginRight};
     background-image: url('${props => props.imgSrc}');
     background-repeat: no-repeat;
     background-size: contain;
+    background-position: center;
 `;
 
 class Footer extends React.Component {
@@ -99,14 +102,14 @@ class Footer extends React.Component {
                     <FooterCopyright>Copyright &#xa9; DEMO Streaming. All rights reserved.</FooterCopyright>
                     <FooterSocialsBlock>
                         <FooterSocialsPart>
-                            <FooterSocialLink currentWidth="30px" currentHeight="30px" imgSrc="./../../../public/assets/social/facebook-white.svg"/>
-                            <FooterSocialLink currentWidth="30px" currentHeight="30px" imgSrc="./../../../public/assets/social/facebook-white.svg"/>
-                            <FooterSocialLink currentWidth="30px" currentHeight="30px" imgSrc="./../../../public/assets/social/facebook-white.svg"/>
+                            <FooterSocialLink currentWidth="30px" currentHeight="30px" marginRight="22px" imgSrc={process.env.PUBLIC_URL+"/assets/social/facebook-white.svg"}/>
+                            <FooterSocialLink currentWidth="30px" currentHeight="30px" marginRight="22px" imgSrc={process.env.PUBLIC_URL+"/assets/social/instagram-white.svg"}/>
+                            <FooterSocialLink currentWidth="30px" currentHeight="30px" imgSrc={process.env.PUBLIC_URL+"/assets/social/twitter-white.svg"}/>
                         </FooterSocialsPart>
                         <FooterSocialsPart>
-                            <FooterSocialLink currentWidth="30px" currentHeight="30px" imgSrc="./../../../public/assets/social/facebook-white.svg"/>
-                            <FooterSocialLink currentWidth="30px" currentHeight="30px" imgSrc="./../../../public/assets/social/facebook-white.svg"/>
-                            <FooterSocialLink currentWidth="30px" currentHeight="30px" imgSrc="./../../../public/assets/social/facebook-white.svg"/>
+                            <FooterSocialLink currentWidth="135px" currentHeight="40px" marginRight="22px" imgSrc={process.env.PUBLIC_URL+"/assets/store/app-store.svg"}/>
+                            <FooterSocialLink currentWidth="135px" currentHeight="40px" marginRight="22px" imgSrc={process.env.PUBLIC_URL+"/assets/store/play-store.svg"}/>
+                            <FooterSocialLink currentWidth="135px" currentHeight="40px" imgSrc={process.env.PUBLIC_URL+"/assets/store/windows-store.svg"}/>
                         </FooterSocialsPart>
                     </FooterSocialsBlock>
                 </FooterBlockWrap>
