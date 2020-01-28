@@ -25,8 +25,8 @@ const Content = (props) => {
         switch(props.page){
             case 'series':
                 return <ListPage type="series"/>;
-            case 'movies':
-                return <ListPage type="movies"/>;
+            case 'movie':
+                return <ListPage type="movie"/>;
             default:
                 return <Home />;
         }
@@ -35,7 +35,6 @@ const Content = (props) => {
 
         <MainContent>
             <ContentWrap>
-                {props.page}
                 {currentPage()}
             </ContentWrap>
         </MainContent>

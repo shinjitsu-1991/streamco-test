@@ -4,6 +4,15 @@ import styled from 'styled-components';
 import DataService from "../../services/data-service";
 import ListItem from "../list-item/ListItem";
 
+const ListPageWrap = styled.div`
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+`;
+
 export default class ListPage extends React.Component {
     constructor(props) {
         super(props);
@@ -27,12 +36,12 @@ export default class ListPage extends React.Component {
         if(this.state.data !== null) {
             let count = 100;
             const markup = this.state.data.map((item) => {
-                return(<ListItem key={count++} title={item.title} />)
+                return(<ListItem key={count++} imageLink={item.images['Poster Art'].url} title={item.title} />)
             });
             return markup;
         }
     };
     render() {
-        return(<>{this.gettingData()}</>)
+        return(<ListPageWrap>{this.gettingData()}</ListPageWrap>)
     }
 };
