@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState,useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import styled from 'styled-components';
 import DataService from "../../services/data-service";
@@ -13,35 +13,28 @@ const ListPageWrap = styled.div`
     flex-wrap: wrap;
 `;
 
-export default class ListPage extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-          data:null
-        };
-    }
+const ListPage = (props) => {
+    const [data, setData] = useState(null);
 
-    componentDidMount() {
+    useEffect(() => {
         const data = new DataService;
-        const dataFiltered = data.sortData(this.props.type)
+        data.sortData(props.type)
             .then((data) => {
-                this.setState({
-                    data:data
-                })
+                setData(data);
             });
 
-    }
+    });
 
-    gettingData = () => {
-        if(this.state.data !== null) {
+    const gettingData = () => {
+        if(data !== null) {
             let count = 100;
-            const markup = this.state.data.map((item) => {
+            const markup = data.map((item) => {
                 return(<ListItem key={count++} imageLink={item.images['Poster Art'].url} title={item.title} />)
             });
             return markup;
         }
     };
-    render() {
-        return(<ListPageWrap>{this.gettingData()}</ListPageWrap>)
-    }
+    return(<ListPageWrap>{gettingData()}</ListPageWrap>)
 };
+
+export default ListPage;
