@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import styled from 'styled-components';
 
-const ItemWrap = styled.a`
+const ItemWrap = styled.div`
     width: 135px;
     height: auto;
     display: flex;
@@ -11,11 +11,13 @@ const ItemWrap = styled.a`
     align-items: flex-start;
     text-decoration: none;
     margin-bottom: 45px;
+    cursor: pointer;
 `;
 
 const Item = styled.div`
     width: 100%;
     height: 200px;
+    background: #000;
     background-image: url('${props => props.imgSrc}');
     background-position: center;
     background-size: cover;
@@ -34,7 +36,7 @@ const ItemTitle = styled.p`
 
 const ListItem = (props) => {
     return(
-        <ItemWrap href="">
+        <ItemWrap onClick={()=>props.clickFunc()}>
             <Item imgSrc={props.imageLink} />
             <ItemTitle>{props.title}</ItemTitle>
         </ItemWrap>

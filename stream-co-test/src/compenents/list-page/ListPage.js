@@ -29,7 +29,7 @@ const ListPage = (props) => {
         if(data !== null) {
             let count = 100;
             const markup = data.map((item) => {
-                return(<ListItem key={count++} imageLink={item.images['Poster Art'].url} title={item.title} />)
+                return(<ListItem clickFunc="" key={count++} imageLink={item.images['Poster Art'].url} title={item.title} />)
             });
             return markup;
         }

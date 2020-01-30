@@ -80,7 +80,7 @@ class Footer extends React.Component {
     }
 
     goHome = () => {
-        return this.props.setPageFunction('series');
+        return this.props.setPageFunction('home');
     };
     render() {
         return(
