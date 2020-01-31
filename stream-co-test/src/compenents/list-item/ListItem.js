@@ -12,16 +12,18 @@ const ItemWrap = styled.div`
     text-decoration: none;
     margin-bottom: 45px;
     cursor: pointer;
+    margin-right:${props => props.maRight};
 `;
 
 const Item = styled.div`
     width: 100%;
     height: 200px;
     background: #000;
-    background-image: url('${props => props.imgSrc}');
+    background-image: url('${props => props.imgSrc ? props.imgSrc : process.env.PUBLIC_URL+"/assets/placeholder.jpg"}');
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
+    filter: ${props => props.imgSrc ? 'none' : 'brightness(0.5)'};
 `;
 
 const ItemTitle = styled.p`
@@ -36,7 +38,8 @@ const ItemTitle = styled.p`
 
 const ListItem = (props) => {
     return(
-        <ItemWrap onClick={()=>props.clickFunc()}>
+        <ItemWrap maRight={props.maRight} onClick={()=>props.clickFunc()}>
+            {console.log(props)}
             <Item imgSrc={props.imageLink} />
             <ItemTitle>{props.title}</ItemTitle>
         </ItemWrap>

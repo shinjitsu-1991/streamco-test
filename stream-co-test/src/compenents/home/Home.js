@@ -21,8 +21,8 @@ const Home = (props) => {
 
     return(
         <ListPageWrap>
-            <ListItem clickFunc={()=>goToPage('series')} imageLink="" title="Popular Series"/>
-            <ListItem  clickFunc={()=>goToPage('movie')} imageLink="" title="Popular Movies"/>
+            <ListItem clickFunc={()=>goToPage('series')} title="Popular Series" maRight="25px"/>
+            <ListItem  clickFunc={()=>goToPage('movie')} title="Popular Movies"/>
         </ListPageWrap>)
 };
 
