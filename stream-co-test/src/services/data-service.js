@@ -1,7 +1,13 @@
 export default class DataService {
     getData = async () => {
-        const response = await fetch(process.env.PUBLIC_URL+'/assets/data/data.json');
-        return await response.json();
+        return await fetch(process.env.PUBLIC_URL+'/assets/data/data.json')
+            .then((response) => {
+                if(!response.ok) {
+                    return 'error';
+                }
+                return response.json()
+            })
+            .catch(() => {return 'error'})
     };
 
     sortData = async (dataType) => {
@@ -12,6 +18,6 @@ export default class DataService {
                     return (item["programType"] === dataType && item["releaseYear"] >= 2010);
                 })
             })
-            .then((items) =>{return items.slice(0,21)})
+            .then((items) =>{return items.slice(0,21)});
     };
 }

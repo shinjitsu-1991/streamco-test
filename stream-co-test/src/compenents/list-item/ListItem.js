@@ -39,7 +39,6 @@ const ItemTitle = styled.p`
 const ListItem = (props) => {
     return(
         <ItemWrap maRight={props.maRight} onClick={()=>props.clickFunc()}>
-            {console.log(props)}
             <Item imgSrc={props.imageLink} />
             <ItemTitle>{props.title}</ItemTitle>
         </ItemWrap>

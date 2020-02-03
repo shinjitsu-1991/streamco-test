@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import styled from 'styled-components';
 import DataService from "../../services/data-service";
 import ListItem from "../list-item/ListItem";
+import ErrorPage from "../error/Error";
+import LoadingPage from "../loading/Loading";
 
 const ListPageWrap = styled.div`
     width: 100%;
@@ -15,25 +17,36 @@ const ListPageWrap = styled.div`
 
 const ListPage = (props) => {
     const [data, setData] = useState(null);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         const data = new DataService;
         data.sortData(props.type)
             .then((data) => {
                 setData(data);
+                setLoading(false);
             });
 
     });
 
     const gettingData = () => {
-        if(data !== null) {
+        if(data !== null && data !== 'error') {
             let count = 100;
             const markup = data.map((item) => {
                 return(<ListItem clickFunc="" key={count++} imageLink={item.images['Poster Art'].url} title={item.title} />)
             });
             return markup;
+        } else if(data === 'error') {
+            return (
+              <ErrorPage/>
+            );
         }
     };
+    if(loading) {
+        return (
+            <LoadingPage/>
+        );
+    }
     return(<ListPageWrap>{gettingData()}</ListPageWrap>)
 };
 
