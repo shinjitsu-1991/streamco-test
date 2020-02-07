@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import Header from '../header/Header';
 import Footer from '../footer/Footer';
 import Content from '../content/Content';
+import ErrorBoundaryComponent from "../errorboundary-component/ErrorBoundaryComponent";
 
 const App = () => {
     const MainWrapper = styled.div`
@@ -11,13 +12,16 @@ const App = () => {
         height: 100%;
         min-width: 100vw;
         min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
     `;
 
     return(
         <MainWrapper>
-            <Header/>
-            <Content/>
-            <Footer/>
+            <ErrorBoundaryComponent children={<Header/>} />
+            <ErrorBoundaryComponent children={<Content/>} />
+            <ErrorBoundaryComponent children={<Footer/>} />
         </MainWrapper>
     );
 };

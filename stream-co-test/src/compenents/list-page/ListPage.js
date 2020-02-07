@@ -33,7 +33,7 @@ const ListPage = (props) => {
         if(data !== null && data !== 'error') {
             let count = 100;
             const markup = data.map((item) => {
-                return(<ListItem clickFunc="" key={count++} imageLink={item.images['Poster Art'].url} title={item.title} />)
+                return(<ListItem clickFunc={()=>console.log(item.title)} key={count++} imageLink={item.images['Poster Art'].url} title={item.title} />)
             });
             return markup;
         } else if(data === 'error') {

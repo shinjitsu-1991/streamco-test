@@ -1,9 +1,10 @@
-import React from 'react';
+import React, {Suspense} from 'react';
 import ReactDOM from 'react-dom';
 import styled from 'styled-components';
 import { connect } from "react-redux"
-import Home from '../home/Home'
-import ListPage from "../list-page/ListPage";
+import LoadingPage from "../loading/Loading";
+const Home = React.lazy(() => import("../home/Home"));
+const ListPage = React.lazy(() => import("../list-page/ListPage"));
 
 const MainContent = styled.div`
     padding:30px 0 130px;
@@ -35,7 +36,9 @@ const Content = (props) => {
 
         <MainContent>
             <ContentWrap>
-                {currentPage()}
+                <Suspense fallback={<LoadingPage/>}>
+                    {currentPage()}
+                </Suspense>
             </ContentWrap>
         </MainContent>
     );
