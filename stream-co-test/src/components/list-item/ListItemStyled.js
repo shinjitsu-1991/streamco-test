@@ -1,5 +1,3 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
 import styled from 'styled-components';
 
 const ItemWrap = styled.div`
@@ -13,6 +11,9 @@ const ItemWrap = styled.div`
     margin-bottom: 45px;
     cursor: pointer;
     margin-right:${props => props.maRight};
+    @media screen and (max-width: 414px) {
+        margin-right: 0;
+    }
 `;
 
 const Item = styled.div`
@@ -36,13 +37,4 @@ const ItemTitle = styled.p`
     font-size: 14px;
 `;
 
-const ListItem = (props) => {
-    return(
-        <ItemWrap maRight={props.maRight} onClick={()=>props.clickFunc()}>
-            <Item imgSrc={props.imageLink} />
-            <ItemTitle>{props.title}</ItemTitle>
-        </ItemWrap>
-    )
-};
-
-export default ListItem;
+export { ItemTitle, Item, ItemWrap };

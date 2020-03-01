@@ -1,25 +1,22 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
 import styled from 'styled-components';
 
-const Header = () => {
-  const HeaderBlock = styled.div`
+const HeaderBlock = styled.div`
     width: 100%;
     height: auto;
   `;
-  const HeaderBlockTop = styled.div`
+const HeaderBlockTop = styled.div`
     width: 100%;
     height: 60px;
     background-color: #0079fe;
   `;
 
-  const HeaderBlockBottom = styled.div`
+const HeaderBlockBottom = styled.div`
     width: 100%;
     height: 60px;
     background-color: #414141;
   `;
 
-  const HeaderBlockWrap = styled.div`
+const HeaderBlockWrap = styled.div`
     margin: 0 auto;
     height: 100%;
     width: 100%;
@@ -30,21 +27,21 @@ const Header = () => {
     align-items: center;
   `;
 
-  const SiteName = styled.h1`
+const SiteName = styled.h1`
     color: #fff;
     font-size: 26px;
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
   `;
 
-  const PageName = styled.h2`
+const PageName = styled.h2`
     color: #fff;
     font-size: 22px;
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
   `;
 
-  const BtnsWrap = styled.div`
+const BtnsWrap = styled.div`
     height: 100%;
     width: auto;
     display: flex;
@@ -53,14 +50,14 @@ const Header = () => {
     align-items: center;
   `;
 
-  const LogInBtn = styled.a`
+const LogInBtn = styled.a`
     color: #fff;
     font-size: 14px;
     font-family: 'Roboto', sans-serif;
     margin-right: 30px;
   `;
 
-  const TrialBtn = styled.button`
+const TrialBtn = styled.button`
     color: #fff;
     font-size: 14px;
     font-family: 'Roboto', sans-serif;
@@ -70,24 +67,4 @@ const Header = () => {
     width: 150px;
   `;
 
-  return(
-      <HeaderBlock>
-        <HeaderBlockTop>
-            <HeaderBlockWrap>
-                <SiteName>DEMO Streaming</SiteName>
-                <BtnsWrap>
-                    <LogInBtn>Log In</LogInBtn>
-                    <TrialBtn>Start Your Free Trial</TrialBtn>
-                </BtnsWrap>
-            </HeaderBlockWrap>
-        </HeaderBlockTop>
-        <HeaderBlockBottom>
-            <HeaderBlockWrap>
-                <PageName>Popular Titles</PageName>
-            </HeaderBlockWrap>
-        </HeaderBlockBottom>
-      </HeaderBlock>
-  );
-};
-
-export default Header;
+export { TrialBtn, LogInBtn, BtnsWrap, PageName, SiteName, HeaderBlockWrap, HeaderBlockBottom, HeaderBlockTop, HeaderBlock };

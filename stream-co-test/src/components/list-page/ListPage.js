@@ -1,19 +1,9 @@
 import React, { useState,useEffect } from 'react';
-import ReactDOM from 'react-dom';
-import styled from 'styled-components';
-import DataService from "../../services/data-service";
-import ListItem from "../list-item/ListItem";
-import ErrorPage from "../error/Error";
-import LoadingPage from "../loading/Loading";
-
-const ListPageWrap = styled.div`
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-start;
-    flex-wrap: wrap;
-`;
+import DataService from "services/data-service";
+import ListItem from "components/list-item/";
+import ErrorPage from "components/error/";
+import LoadingPage from "components/loading/";
+import { ListPageWrap } from "./ListPageStyled"
 
 const ListPage = (props) => {
     const [data, setData] = useState(null);
@@ -31,7 +21,7 @@ const ListPage = (props) => {
 
     const gettingData = () => {
         if(data !== null && data !== 'error') {
-            let count = 100;
+            let count = 1;
             const markup = data.map((item) => {
                 return(<ListItem clickFunc={()=>console.log(item.title)} key={count++} imageLink={item.images['Poster Art'].url} title={item.title} />)
             });
@@ -49,5 +39,19 @@ const ListPage = (props) => {
     }
     return(<ListPageWrap>{gettingData()}</ListPageWrap>)
 };
+
+ListPage.defaultProps = {
+    type: ''
+};
+
+ListPage.propsType = {
+    type: (props, propName, componentName) => {
+        const value = props[propName];
+        if(typeof value === 'string') {
+            return null;
+        }
+        return new TypeError(`${componentName}: ${propName} must be a string`);
+    }
+}
 
 export default ListPage;
