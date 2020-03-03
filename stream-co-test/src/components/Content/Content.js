@@ -44,11 +44,7 @@ class Content extends React.Component {
         }
     };
     render() {
-        console.log(this.props.data);
-        console.log(this.props.error)
-        console.log(this.props.fetching)
         return(
-
             <MainContent>
                 <ContentWrap>
                     <Suspense fallback={<LoadingPage/>}>
@@ -84,7 +80,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        onRequestData: () => dispatch({type:["API_CALL_REQUEST"]})
+        onRequestData: () => dispatch({type:"API_CALL_REQUEST"})
     };
 };
 

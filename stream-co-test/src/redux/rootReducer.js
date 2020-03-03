@@ -8,9 +8,9 @@ const initialState = {
 };
 
 const reducer = handleActions({
-        [API_CALL_REQUEST]: state => ({ ...state, fetching: true, error: null }),
-        [API_CALL_SUCCESS]: (state, action) => ({ ...state, fetching: false, data: action.data }),
-        [API_CALL_FAILURE]: (state, action) => ({ ...state, fetching: false, data: null, error: action.error })
+        API_CALL_REQUEST: state => ({ ...state, fetching: true, error: null }),
+        API_CALL_SUCCESS: (state, action) => ({ ...state, fetching: false, data: action.data }),
+        API_CALL_FAILURE: (state, action) => ({ ...state, fetching: false, data: null, error: action.error })
     },initialState);
 
 export { reducer };
