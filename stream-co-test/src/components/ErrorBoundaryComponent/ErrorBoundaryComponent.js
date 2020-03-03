@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import ErrorPage from "components/error/";
+import ErrorPage from "components/Error/";
 
 export default class ErrorBoundaryComponent extends React.Component{
     constructor(props) {

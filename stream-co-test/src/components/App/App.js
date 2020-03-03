@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
-import Content from 'components/content/';
-import Header from 'components/header/';
-import Footer from 'components/footer/';
+import Content from 'components/Content/';
+import Header from 'components/Header/';
+import Footer from 'components/Footer/';
 import MainWrapper from './AppStyled';
-import ErrorBoundaryComponent from "components/errorboundary-component/";
+import ErrorBoundaryComponent from "components/ErrorBoundaryComponent/";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 export default class App extends Component {
