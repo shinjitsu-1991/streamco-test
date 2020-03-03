@@ -9,12 +9,11 @@ import { watcherSaga } from "redux/rootSaga";
 
 const sagaMiddleware = createSagaMiddleware();
 
-// const reduxDevTools =
-//     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 let store = createStore(
     reducer,
-    compose(applyMiddleware(sagaMiddleware))
+    composeEnhancers(applyMiddleware(sagaMiddleware))
 );
 
 sagaMiddleware.run(watcherSaga);

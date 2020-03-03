@@ -1,7 +1,6 @@
 import React, { Suspense } from 'react';
-import ReactDOM from 'react-dom';
 import { connect } from "react-redux";
-import ErrorPage from "pages/ListPage/ListPage";
+import ErrorPage from "pages/ListPage/";
 import LoadingPage from "components/Loading/";
 import { MainContent, ContentWrap } from "./ContentStyled";
 const Home = React.lazy(() => import("pages/Home/"));
@@ -10,9 +9,6 @@ const ListPage = React.lazy(() => import("pages/ListPage/"));
 
 
 class Content extends React.Component {
-    constructor(props) {
-        super(props);
-    }
     componentDidMount() {
         this.props.onRequestData();
     }
@@ -54,7 +50,7 @@ class Content extends React.Component {
             </MainContent>
         );
     }
-};
+}
 
 Content.defaultProps = {
     page: ''

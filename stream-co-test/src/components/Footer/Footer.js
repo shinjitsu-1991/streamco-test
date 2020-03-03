@@ -1,20 +1,15 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import { connect } from "react-redux"
 import * as FooterStyled from './FooterStyled';
+import './Footer.css'
 import { Link } from "react-router-dom";
 
 class Footer extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-
     render() {
         return(
             <FooterStyled.FooterBlock>
                 <FooterStyled.FooterBlockWrap>
                     <FooterStyled.FooterBlockNavi>
-                        <Link to="/">Home</Link>
+                        <Link className="footer-link" to="/">Home</Link>
                         <FooterStyled.FooterNaviSeparator>|</FooterStyled.FooterNaviSeparator>
                         <FooterStyled.FooterNaviItem>Terms and Conditions</FooterStyled.FooterNaviItem>
                         <FooterStyled.FooterNaviSeparator>|</FooterStyled.FooterNaviSeparator>
